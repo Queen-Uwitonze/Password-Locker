@@ -12,22 +12,22 @@ class Credential:
 
     credential_list = [] # Empty contact- credentials list
     # Init method up here
-    def save_ credential(self):
+    def save_credential(self):
       '''
       save_user method saves user objects into user_list
       '''
-      Credential. credential_list.append(self)
+      Credential.credential_list.append(self)
 
 
-    def delete_ credential(self):
+    def delete_credential(self):
       '''
       delete_user method deletes a saved user from the user_list
       '''
-      Credential. credential_list.remove(self)
+      Credential.credential_list.remove(self)
 
 
     @classmethod
-    def find_by_ credential_name(cls,user_name):
+    def find_by_credential_name(cls,user_name):
       '''
       Method that takes username and returns a user that matches that username.
       Args:

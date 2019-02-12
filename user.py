@@ -46,3 +46,25 @@ class User:
     def copy_email(cls,user_name):
         found_person = User.find_by_user_name(user_name)
         pyperclip.copy(found_person.email)
+    
+    @classmethod
+    def display_persons(cls):
+        '''
+        method that returns the contact list
+        '''
+        return cls.user_list
+
+    @classmethod
+    def person_exist(cls,user_name):
+        '''
+        Method that checks if a user exists from the user list.
+        Args:
+            number: username to search if it exists
+        Returns :
+            Boolean: True or false depending if the user exists
+        '''
+        for person in cls.user_list:
+            if person.user_name == user_name :
+                    return True
+
+        return False
