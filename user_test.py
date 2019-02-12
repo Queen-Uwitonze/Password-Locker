@@ -13,7 +13,7 @@ class TestUser(unittest.TestCase):
         '''
         Set up method to run before each test cases.
         '''
-        self.new_person= User("Queen-Uwitonze","uwitonzeq@gmail.com","wito123") # create contact object
+        self.new_person= User("Queen-Uwitonze","uwitonzeq@gmail.com","wito123") # create user object
 
     def test_init(self):
         '''
@@ -30,7 +30,17 @@ class TestUser(unittest.TestCase):
          the user list
         '''
         self.new_person.save_user() # saving the new user
-        self.assertEqual(len(User.user_list),1)
+        self.assertEqual(len(User.user_list),2)
+
+    def test_save_multiple_user_contact(self):
+            '''
+            test_save_multiple_user-contact to check if we can save multiple user
+            objects to our user_list
+            '''
+            self.new_person.save_user()
+            test_person = User("Test","user","test@user.com") # new user
+            test_person.save_user()
+            self.assertEqual(len(User.user_list),2)
 
 if __name__ == '__main__':
     unittest.main()
