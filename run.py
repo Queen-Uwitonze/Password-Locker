@@ -27,7 +27,7 @@ def find_person(user_name):
     '''
     return User.find_by_user_name(user_name)
 
-def check_existing_persons(number):
+def check_existing_persons(user_name):
     '''
     Function that check if a contact exists with that number and return a Boolean
     '''
@@ -53,7 +53,7 @@ def main():
     print('\n')
 
     while True:
-                    print("Use these short codes : cc - create a new contact, dc - display contacts, fc -find a contact, ex -exit the contact list ")
+                    print("Use these short codes : cc - create a new contact, dc - display contacts, fc -find a contact, ex -exit the contact list ,dl -delete")
 
                     short_code = input().lower()
 
@@ -110,6 +110,18 @@ def main():
                             break
                     else:
                             print("I really didn't get that. Please use the short codes")
+
+                    elif short_code == "dl":
+
+                            print("Enter the account_name you want to delete ")
+                            search_user_name = input()
+
+                            if check_existing_user(search_user_name):
+                                    search_person = find_person(search_user_name)
+                                    print("CREDENTIAL DELETED")
+
+                            else:
+                                    print("CREDENTIAL DOESN'T EXIST")
     
 if __name__ == '__main__':
       main()
