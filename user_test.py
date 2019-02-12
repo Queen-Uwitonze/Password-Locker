@@ -1,5 +1,5 @@
 import unittest # Importing the unittest module
-from user import User # Importing the contact class
+from user import User # Importing the user class
 
 class TestUser(unittest.TestCase):
 
@@ -49,6 +49,16 @@ class TestUser(unittest.TestCase):
     test_person = User("Test","test@user.com","muraho") # new user
     test_person.save_user()
     self.assertEqual(len(User.user_list),2)
+
+  def test_delete_user(self):
+    '''
+    test_delete_user to test if we can remove a user from our use list
+    '''
+    self.new_person.save_user()
+    test_person = User("Test","test@user.com","muraho") # new user
+    test_person.save_user()
+    self.new_person.delete_user()# Deleting a user object
+    self.assertEqual(len(User.user_list),1)
 
 if __name__ == '__main__':
     unittest.main()
