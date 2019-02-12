@@ -1,4 +1,5 @@
 import unittest # Importing the unittest module
+from user import User # Importing the contact class
 
 class TestUser(unittest.TestCase):
 
@@ -12,16 +13,16 @@ class TestUser(unittest.TestCase):
         '''
         Set up method to run before each test cases.
         '''
-        self.new_user= User("Queen-Uwitonze","uwitonzeq@gmail.com","wito123") # create contact object
+        self.new_person= User("Queen-Uwitonze","uwitonzeq@gmail.com","wito123") # create contact object
 
     def test_init(self):
         '''
         test_init test case to test if the object is initialized properly
         '''
 
-        self.assertEqual(self.new_user.user_name,"Queen-Uwitonze")
-        self.assertEqual(self.new_user.user_email,"uwitonzeq@gmail.com")
-        self.assertEqual(self.new_user_password,"wito123")
+        self.assertEqual(self.new_person.user_name,"Queen-Uwitonze")
+        self.assertEqual(self.new_person.user_email,"uwitonzeq@gmail.com")
+        self.assertEqual(self.new_person.user_password,"wito123")
 
 if __name__ == '__main__':
     unittest.main()
