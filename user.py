@@ -5,8 +5,8 @@ class User:
     # Init method up here
     def __init__(self,user_name,email,password):
       self.user_name = user_name
-      self.user_email = email
-      self.user_password = password
+      self.email = email
+      self.password = password
 
     user_list = [] # Empty contact-users list
     # Init method up here
@@ -25,4 +25,18 @@ class User:
       '''
 
       User.user_list.remove(self)
-     
+
+
+    @classmethod
+    def find_by_user_name(cls,user_name):
+        '''
+        Method that takes username and returns a user that matches that username.
+
+        Args:
+            username: username to search for
+        Returns :
+            User contact  of person that matches the username.
+        '''
+        for person in cls.user_list:
+            if person.user_name == user_name:
+                return person

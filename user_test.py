@@ -21,8 +21,8 @@ class TestUser(unittest.TestCase):
       '''
 
       self.assertEqual(self.new_person.user_name,"Queen-Uwitonze")
-      self.assertEqual(self.new_person.user_email,"uwitonzeq@gmail.com")
-      self.assertEqual(self.new_person.user_password,"wito123")
+      self.assertEqual(self.new_person.email,"uwitonzeq@gmail.com")
+      self.assertEqual(self.new_person.password,"wito123")
 
   def test_save_user(self):
       '''
@@ -46,7 +46,7 @@ class TestUser(unittest.TestCase):
     objects to our user_list
     '''
     self.new_person.save_user()
-    test_person = User("Test","test@user.com","muraho") # new user
+    test_person = User("New","new@user.com","muraho") # new user
     test_person.save_user()
     self.assertEqual(len(User.user_list),2)
 
@@ -55,10 +55,25 @@ class TestUser(unittest.TestCase):
     test_delete_user to test if we can remove a user from our use list
     '''
     self.new_person.save_user()
-    test_person = User("Test","test@user.com","muraho") # new user
+    test_person = User("New","new@user.com","muraho") # new user
     test_person.save_user()
+
     self.new_person.delete_user()# Deleting a user object
     self.assertEqual(len(User.user_list),1)
+
+  def test_find_person_by_user_name(self):
+    '''
+    test to check if we can find a user contact by username and display information
+    '''
+
+    self.new_person.save_user()
+    test_person = User("New","new@user.com","muraho") # new user
+    test_person.save_user()
+
+    found_person = User.find_by_user_name("New")
+
+    self.assertEqual(found_person.email,test_person.email)
+  
 
 if __name__ == '__main__':
     unittest.main()
